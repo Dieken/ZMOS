@@ -30,7 +30,12 @@ i=0; while [ $((i+=1)) -le 100 ]; do
     fcitx-remote >/dev/null 2>&1 && break
 done
 
+## affect i3-sensible-terminal
+for term in urxvtcd mlterm uxterm xterm; do
+    which -s $term && export TERMINAL=$term && break
+done
+
 ## start window manager
-which -s "${1:-}" || exec i3    # spectrwm openbox-session icewm-session wmaker
+which -s "${1:-}" || exec i3    # awesome openbox-session icewm-session wmaker fvwm
 exec "$1"
 

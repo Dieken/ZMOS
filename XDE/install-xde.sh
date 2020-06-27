@@ -36,28 +36,36 @@ i xorg
 # VirtualBox additions
 i xf86-video-vmware virtualbox-ose-additions
 
-# X display manager
-#   other: xdm
+# X display manager: slim, xdm
 i slim
 
 # X session manager
 #i xsm
 
-# X window manager
-#   other: spectrwm openbox icewm windowmaker fvwm
+# X window manager: i3, awesome, openbox, icewm, windowmaker, fvwm
 i i3-gaps i3status
+#i awesome awesome-vicious conky-awesome
+#i openbox tint2 # fbpanel is another good panel
+#i icewm
+#i windowmaker
+#i fvwm
 
 # X compositing manager
 #i picom
+
+# X terminal emulator: rxvt-unicode, mlterm
+i rxvt-unicode urxvt-font-size urxvt-perls
 
 # X input method
 i fcitx-qt5 zh-fcitx zh-fcitx-configtool zh-fcitx-libpinyin zh-fcitx-sunpinyin
 
 # extra fonts
 i noto hack-font
+#i powerline-fonts nerd-fonts
 
 # extra utilities
 i augeas dbus flog rsync
+i xsel-conrad xclip     # required by urxvt clipboard extension
 
 # Finally, install all packages
 pkg install $PACKAGES
