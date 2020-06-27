@@ -60,7 +60,7 @@ i rxvt-unicode urxvt-font-size urxvt-perls
 i fcitx-qt5 zh-fcitx zh-fcitx-configtool zh-fcitx-libpinyin zh-fcitx-sunpinyin
 
 # extra fonts
-i noto hack-font
+i hack-font noto zh-CJKUnifonts
 #i powerline-fonts nerd-fonts
 
 # extra utilities

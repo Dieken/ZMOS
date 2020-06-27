@@ -83,7 +83,9 @@ UXTerm*highlightSelection: true
 UXTerm*trimSelection: true
 
 !! urxvt
-URxvt.font: xft:Hack-14,xft:DejaVu Sans Mono,xft:Noto Sans Mono CJK SC,xft:monospace
+! URxvt renders Noto Sans Mono CJK SC very ugly, so we choose UMing.
+!URxvt.font: xft:Hack-14,xft:DejaVu Sans Mono-14,xft:Noto Sans Mono CJK SC-16,xft:monospace-16
+URxvt.font: xft:Hack-14,xft:DejaVu Sans Mono-14,xft:AR PL UMing CN-16,xft:monospace-16
 URxvt.letterSpace: -1
 URxvt.skipBuiltinGlyphs: true
 URxvt.saveLines: 1024
@@ -112,4 +114,6 @@ URxvt.matcher.button: C1
 URxvt.matcher.pattern.1: \\b(mailto|http|https|ftp|file):[/]*[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 URxvt.matcher.pattern.2: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 URxvt.print-pipe: cat >/dev/null
+URxvt.termName: rxvt-unicode-256color
+URxvt.thickness: 20
 
