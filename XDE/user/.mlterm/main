@@ -1,7 +1,7 @@
 bel_mode = none
 col_size_of_width_a = 2
 daemon_mode = blend
-fontsize = 14
+fontsize = 12
 iso88591_font_for_usascii = true
 line_space = 1
 logsize = 1024

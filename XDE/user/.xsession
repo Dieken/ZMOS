@@ -30,6 +30,13 @@ i=0; while [ $((i+=1)) -le 100 ]; do
     fcitx-remote >/dev/null 2>&1 && break
 done
 
+## autostart /usr/local/etc/xdg/autostart/vboxclient.desktop
+## https://bugs.freebsd.org/bugzilla/buglist.cgi?query_format=advanced&short_desc=VBoxClient&short_desc_type=allwordssubstr
+vboxclient=/usr/local/bin/VBoxClient
+if [ -x $vboxclient-all ]; then
+    sed -e "s|/usr/bin/VBoxClient|$vboxclient|g" $vboxclient-all | sh || echo "WARN: $vboxclient-all failed!" >&2
+fi
+
 ## affect i3-sensible-terminal
 for term in urxvtcd mlterm lxterminal uxterm xterm; do
     which -s $term && export TERMINAL=$term && break

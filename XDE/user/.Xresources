@@ -5,8 +5,8 @@
 !! See https://wiki.archlinux.org/index.php/Font_configuration
 Xft.antialias: true
 Xft.autohint:  false
-! 96 dpi increase by 25%(120), 50%(144), 75%(168), 100%(192)
-Xft.dpi:       144
+! 96 dpi scaled by 125%(120), 150%(144), 175%(168), 200%(192)
+Xft.dpi:       192
 Xft.hinting:   true
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
@@ -29,8 +29,8 @@ XTerm*vt100.translations: #override \n\
     Ctrl <Key> 0: set-vt-font(d)
 XTerm*cjkWidth: true
 XTerm*faceName: Hack,DejaVu Sans Mono,monospace
-XTerm*faceNameDoublesize: Noto Sans Mono CJK SC,monospace
-XTerm*faceSize: 14
+XTerm*faceNameDoublesize: Noto Sans Mono CJK SC-13,monospace-13
+XTerm*faceSize: 12
 XTerm*faceSize1: 8
 XTerm*faceSize2: 10
 XTerm*faceSize3: 12
@@ -38,7 +38,6 @@ XTerm*faceSize4: 14
 XTerm*faceSize5: 16
 XTerm*faceSize6: 22
 XTerm*renderFont: true
-XTerm*scaleHeight: 1.01
 XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 XTerm*scrollBar: true
 XTerm*scrollKey: true
@@ -64,8 +63,8 @@ UXTerm*vt100.translations: #override \n\
     Ctrl <Key> 0: set-vt-font(d)
 UXTerm*cjkWidth: true
 UXTerm*faceName: Hack,DejaVu Sans Mono,monospace
-UXTerm*faceNameDoublesize: Noto Sans Mono CJK SC,monospace
-UXTerm*faceSize: 14
+UXTerm*faceNameDoublesize: Noto Sans Mono CJK SC-13,monospace-13
+UXTerm*faceSize: 12
 UXTerm*faceSize1: 8
 UXTerm*faceSize2: 10
 UXTerm*faceSize3: 12
@@ -73,7 +72,6 @@ UXTerm*faceSize4: 14
 UXTerm*faceSize5: 16
 UXTerm*faceSize6: 22
 UXTerm*renderFont: true
-UXTerm*scaleHeight: 1.01
 UXTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 UXTerm*scrollBar: true
 UXTerm*scrollKey: true
@@ -84,8 +82,8 @@ UXTerm*trimSelection: true
 
 !! urxvt
 ! URxvt renders Noto Sans Mono CJK SC very ugly, so we choose UMing.
-!URxvt.font: xft:Hack-14,xft:DejaVu Sans Mono-14,xft:Noto Sans Mono CJK SC-16,xft:monospace-16
-URxvt.font: xft:Hack-14,xft:DejaVu Sans Mono-14,xft:AR PL UMing CN-16,xft:monospace-16
+!URxvt.font: xft:Hack-12,xft:DejaVu Sans Mono-12,xft:Noto Sans Mono CJK SC-13,xft:monospace-13
+URxvt.font: xft:Hack-12,xft:DejaVu Sans Mono-12,xft:AR PL UMing CN-13,xft:monospace-13
 URxvt.letterSpace: -1
 URxvt.skipBuiltinGlyphs: true
 URxvt.saveLines: 1024

@@ -37,7 +37,7 @@ i xorg
 i xf86-video-vmware virtualbox-ose-additions
 
 # X display manager: slim, xdm
-i slim
+i slim slim-themes
 
 # X session manager
 #i xsm
@@ -81,7 +81,7 @@ sysrc dbus_enable=YES
 augtool -l /etc/sysctl.conf -s 'set /files/etc/sysctl.conf/kern.evdev.rcpt_mask 6'
 
 # use 1920x1080 if not specified, loader.conf(5)
-loader_sysrc -i -c efi_max_resolution || loader_sysrc efi_max_resolution=1080p
+loader_sysrc -i -c efi_max_resolution || loader_sysrc efi_max_resolution="3360x2100"
 
 # use terminus-b32 if not specified, rc.conf(5)
 allscreens_flags=`sysrc -i -n allscreens_flags-NULL`

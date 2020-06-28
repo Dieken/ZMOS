@@ -12,10 +12,11 @@ software.
 
 ## Run on VirtualBox
 
-0. (macOS) make sure `System Preferences -> Displays -> Display: Resolution` is `Default for display`, which means `2880x1800` on MacBook Pro 15-inch screen, you can find this at Apple menu `-> About This Mac ... -> Displays`. If you use different resolution, you need change `/boot/loader.conf` and `/usr/local/etc/X11/xorg.conf.d/XDE.conf`, maybe also `Xft.dpi` in `~/.Xresources`.
-1. Install VirtualBox 6.1.10
-2. To avoid conflict with X window manager hot keys, change Virtual Machine host key to not use <kbd>Command</kbd> or <kbd>Win</kbd>, you may use <kbd>Right_Command</kbd> + <kbd>Right_Option</kbd>.
-3. Create FreeBSD 64bit VM, change machine settings:
+1. Adjust screen resolution for XDE:
+    1. macOS: Check `System Preferences -> Displays -> Display` for your screen resolution, it's 1680x1050 by default on MacBook Pro 15-inch screen. If you use different resolution, you need adjust `XDE/install-xde.sh` and `XDE/system/usr/local/etc/X11/xorg.conf.d/XDE.conf`, notice the resolution for ZMOS is doubled because Apple Retina display runs "pixel doubled".
+2. Install VirtualBox 6.1.10
+3. To avoid conflict with X window manager hot keys, change Virtual Machine host key to not use <kbd>Command</kbd> or <kbd>Win</kbd>, you may use <kbd>Right_Command</kbd> + <kbd>Right_Option</kbd>.
+4. Create FreeBSD 64bit VM, change machine settings:
    1. System -> Motherboard:
       * Base Memory: 2048 MB
       * Enable EFI
@@ -27,8 +28,8 @@ software.
       * Video Memory: 128 MB
       * Graphics Controller: VMSVGA
       * Enable 3D Acceleration
-4. Install FreeBSD 12.1, create a normal user
-5. Download ZMOS/ to home directory, run commands below:
+5. Install FreeBSD 12.1, create a normal user
+6. Download ZMOS/ to home directory, run commands below:
    ```sh
    ## as root
    ./XDE/install-xde.sh
