@@ -43,7 +43,7 @@ i slim
 #i xsm
 
 # X window manager: i3, awesome, openbox, icewm, windowmaker, fvwm
-i i3-gaps i3status
+i i3-gaps i3status dmenu
 #i awesome awesome-vicious conky-awesome
 #i openbox tint2 # fbpanel is another good panel
 #i icewm
@@ -60,12 +60,12 @@ i rxvt-unicode urxvt-font-size urxvt-perls
 i fcitx-qt5 zh-fcitx zh-fcitx-configtool zh-fcitx-libpinyin zh-fcitx-sunpinyin
 
 # extra fonts
-i hack-font noto zh-CJKUnifonts
+i dejavu hack-font noto zh-CJKUnifonts
 #i powerline-fonts nerd-fonts
 
 # extra utilities
 i augeas dbus flog rsync
-i xsel-conrad xclip     # required by urxvt clipboard extension
+i xdg-utils xsel-conrad xclip   # required by urxvt clipboard extension
 
 # Finally, install all packages
 pkg install $PACKAGES

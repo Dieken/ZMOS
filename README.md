@@ -12,6 +12,7 @@ software.
 
 ## Run on VirtualBox
 
+0. (macOS) make sure `System Preferences -> Displays -> Display: Resolution` is `Default for display`, which means `2880x1800` on MacBook Pro 15-inch screen, you can find this at Apple menu `-> About This Mac ... -> Displays`. If you use different resolution, you need change `/boot/loader.conf` and `/usr/local/etc/X11/xorg.conf.d/XDE.conf`, maybe also `Xft.dpi` in `~/.Xresources`.
 1. Install VirtualBox 6.1.10
 2. To avoid conflict with X window manager hot keys, change Virtual Machine host key to not use <kbd>Command</kbd> or <kbd>Win</kbd>, you may use <kbd>Right_Command</kbd> + <kbd>Right_Option</kbd>.
 3. Create FreeBSD 64bit VM, change machine settings:
