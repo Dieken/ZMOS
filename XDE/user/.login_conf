@@ -1,0 +1,12 @@
+# https://www.b1c1l1.com/blog/2011/05/09/using-utf-8-unicode-on-freebsd/
+#   This article says "LC_COLLATE be set to C because some programs
+#   still require ASCII ordering in order to function correctly",
+#   let's see what applications are broken.
+#
+#   See login.conf(5)
+
+me:\
+	:charset=UTF-8:\
+	:lang=en_US.UTF-8:\
+	:setenv=LC_CTYPE=zh_CN.UTF-8:
+

@@ -13,7 +13,7 @@ software.
 ## Run on VirtualBox
 
 1. Adjust screen resolution for XDE:
-    1. macOS: Check `System Preferences -> Displays -> Display` for your screen resolution, it's 1680x1050 by default on MacBook Pro 15-inch screen. If you use different resolution, you need adjust `XDE/install-xde.sh` and `XDE/system/usr/local/etc/X11/xorg.conf.d/XDE.conf`, notice the resolution for ZMOS is doubled because Apple Retina display runs "pixel doubled".
+    1. macOS: Check `System Preferences -> Displays -> Display` for your screen resolution, it's 1680x1050 by default on MacBook Pro 15-inch screen. If you use different resolution, you need customize `XDE/xde.conf` by `XDE/xde.conf.local`, notice the resolution for ZMOS is doubled because Apple Retina display runs "pixel doubled".
 2. Install VirtualBox 6.1.10
 3. To avoid conflict with X window manager hot keys, change Virtual Machine host key to not use <kbd>Command</kbd> or <kbd>Win</kbd>, you may use <kbd>Right_Command</kbd> + <kbd>Right_Option</kbd>.
 4. Create FreeBSD 64bit VM, change machine settings:
