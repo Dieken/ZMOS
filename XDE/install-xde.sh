@@ -117,7 +117,7 @@ done
 
 
 rsync -rlcv -b --backup-dir "$PWD/backup-system-$TIMESTAMP" \
-    --exclude "*.tmpl" --exclude ".*.sw*" --exclude "*~" --exclude ".DS_Store" --exclude ".git*" \
+    --exclude "*.sample" --exclude "*.tmpl" --exclude ".*.sw*" --exclude "*~" --exclude ".DS_Store" --exclude ".git*" \
     "$XDE_HOME/system/" "$XDE_HOME/generated-system/" /
 
 rm -rf "$XDE_HOME/generated-system/"

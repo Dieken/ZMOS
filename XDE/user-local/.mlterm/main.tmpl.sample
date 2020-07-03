@@ -1,0 +1,2 @@
+bg_color = @@TERM_BACKGROUND@@
+fg_color = @@TERM_FOREGROUND@@

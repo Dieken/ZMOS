@@ -24,19 +24,27 @@ TIMESTAMP=`date +%Y%m%d-%H%M%S`
 ########################################################################
 ## user config
 
-rm -rf "$XDE_HOME/generated-user/" && mkdir "$XDE_HOME/generated-user/"
-find "$XDE_HOME/user" -type f -name "*.tmpl" | while read f; do
-    t=${f#$XDE_HOME/user/}
+rm -rf "$XDE_HOME/generated-user/"
+cp -a "$XDE_HOME/user" "$XDE_HOME/generated-user"
+{
+    find "$XDE_HOME/generated-user" -type f -name "*.tmpl"
+    find "$XDE_HOME/user-local" -type f
+} | while read f; do
+    t=${f#$XDE_HOME/*/}
     t=${t%.tmpl}
     mkdir -p "$XDE_HOME/generated-user/`dirname $t`"
-    perl -pe 's/@@(\w+)@@/exists $ENV{$1} ? $ENV{$1} : $&/eg' "$f" >"$XDE_HOME/generated-user/$t"
+    if [ ${f%.tmpl} = $f ]; then
+        cat "$f"
+    else
+        perl -pe 's/@@(\w+)@@/exists $ENV{$1} ? $ENV{$1} : $&/eg' "$f"
+    fi >>"$XDE_HOME/generated-user/$t"
     chmod `stat -f %Lp "$f"` "$XDE_HOME/generated-user/$t"
 done
 
 
 rsync -acv -b --backup-dir "$PWD/backup-user-$TIMESTAMP" \
-    --exclude "*.tmpl" --exclude ".*.sw*" --exclude "*~" --exclude ".DS_Store" --exclude ".git*" \
-    "$XDE_HOME/user/" "$XDE_HOME/generated-user/" $HOME/
+    --exclude "*.sample" --exclude "*.tmpl" --exclude ".*.sw*" --exclude "*~" --exclude ".DS_Store" --exclude ".git*" \
+    "$XDE_HOME/generated-user/" $HOME/
 
 rm -rf "$XDE_HOME/generated-user/"
 

@@ -1,0 +1,9 @@
+XTerm*background         :  @@TERM_BACKGROUND@@
+XTerm*foreground         :  @@TERM_FOREGROUND@@
+
+UXTerm*background        :  @@TERM_BACKGROUND@@
+UXTerm*foreground        :  @@TERM_FOREGROUND@@
+
+URxvt.background         :  @@TERM_BACKGROUND@@
+URxvt.foreground         :  @@TERM_FOREGROUND@@
+
