@@ -92,9 +92,13 @@ pkg install $PACKAGES
 ########################################################################
 ## system config
 
-ifvm vbox sysrc vboxguest_enable=YES vboxservice_enable=YES
-sysrc slim_enable=YES
+# required by /usr/local/bin/vmware-vmblock-fuse and other fuse filesystems
+loader_sysrc fuse_load=YES
+
+ifvm vbox sysrc vboxguest_enable=YES vboxservice_enable=YES vboxservice_flags="--disable-timesync"
+
 sysrc dbus_enable=YES
+sysrc slim_enable=YES
 
 # recommended by xorg-server
 augtool -l /etc/sysctl.conf -s 'set /files/etc/sysctl.conf/kern.evdev.rcpt_mask 6'

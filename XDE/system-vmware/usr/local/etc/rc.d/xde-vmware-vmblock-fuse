@@ -1,0 +1,29 @@
+#!/bin/sh
+
+## https://github.com/vmware/open-vm-tools/issues/150
+
+# PROVIDE: xde-vmware-vmblock-fuse
+# REQUIRE: FILESYSTEMS vmware-guestd vmware-kmod
+# BEFORE: LOGIN
+
+. /etc/rc.subr
+
+name="xde_vmware_vmblock_fuse"
+rcvar=xde_vmware_vmblock_fuse_enable
+
+load_rc_config $name
+
+checkvm_cmd="/usr/local/bin/vmware-checkvm > /dev/null"
+if ${checkvm_cmd}; then
+        : ${xde_vmware_vmblock_fuse_enable:="YES"}
+else
+        : ${xde_vmware_vmblock_fuse_enable:="NO"}
+fi
+
+command="/usr/local/bin/vmware-vmblock-fuse"
+pidfile="/var/run/${name}.pid"
+start_precmd="mkdir -m 755 -p /var/run/vmblock; ${checkvm_cmd}"
+stop_precmd="${checkvm_cmd}"
+command_args="-o subtype=vmware-vmblock,default_permissions,allow_other /var/run/vmblock"
+
+run_rc_command "$1"

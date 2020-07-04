@@ -62,10 +62,11 @@ fi
 
 
 ## start /usr/local/etc/xdg/autostart/vmware-user.desktop
+## https://github.com/vmware/open-vm-tools/issues/150
 vmware_user=/usr/local/bin/vmware-user-suid-wrapper
-#if [ $MACHINE = vmware -a -x $vmware_user ]; then
-#    $vmware_user || warn "$vmware_user failed!"
-#fi
+if [ $MACHINE = vmware -a -x $vmware_user ]; then
+    $vmware_user || warn "$vmware_user failed!"
+fi
 
 
 ## start X compositing manager
