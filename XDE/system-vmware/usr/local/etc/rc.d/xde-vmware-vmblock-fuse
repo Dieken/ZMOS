@@ -13,17 +13,17 @@ rcvar=xde_vmware_vmblock_fuse_enable
 
 load_rc_config $name
 
-checkvm_cmd="/usr/local/bin/vmware-checkvm > /dev/null"
-if ${checkvm_cmd}; then
+checkvm_cmd="/usr/local/bin/vmware-checkvm"
+if ${checkvm_cmd} > /dev/null; then
         : ${xde_vmware_vmblock_fuse_enable:="YES"}
 else
         : ${xde_vmware_vmblock_fuse_enable:="NO"}
 fi
 
 command="/usr/local/bin/vmware-vmblock-fuse"
-pidfile="/var/run/${name}.pid"
+command_args="-o subtype=vmware-vmblock,default_permissions,allow_other /var/run/vmblock"
 start_precmd="mkdir -m 755 -p /var/run/vmblock; ${checkvm_cmd}"
 stop_precmd="${checkvm_cmd}"
-command_args="-o subtype=vmware-vmblock,default_permissions,allow_other /var/run/vmblock"
+stop_cmd=":"
 
 run_rc_command "$1"
