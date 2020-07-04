@@ -122,7 +122,9 @@ done
 
 rsync -rlcv -b --backup-dir "$PWD/backup-system-$TIMESTAMP" \
     --exclude "*.sample" --exclude "*.tmpl" --exclude ".*.sw*" --exclude "*~" --exclude ".DS_Store" --exclude ".git*" \
-    "$XDE_HOME/system/" "$XDE_HOME/generated-system/" /
+    "$XDE_HOME/system/" "$XDE_HOME/system-$MACHINE/" "$XDE_HOME/generated-system/" /
+
+ifvm vmware chmod 555 /usr/local/etc/rc.d/xde-vmware-vmblock-fuse
 
 rm -rf "$XDE_HOME/generated-system/"
 
