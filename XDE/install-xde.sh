@@ -51,7 +51,7 @@ ifvm () {
 i xorg
 
 # VirtualBox additions
-ifvm vmware i xf86-video-vmware
+ifvm vmware i xf86-video-vmware xf86-input-vmmouse open-vm-tools
 ifvm vbox i xf86-video-vmware virtualbox-ose-additions
 
 # X display manager: slim, xdm

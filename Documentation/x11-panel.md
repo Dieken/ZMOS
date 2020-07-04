@@ -13,6 +13,7 @@
 ## Candidates
 
 * tint2
+* i3bar + i3status: 
 * fbpanel: doesn't work in i3 and awesome
 * polybar: doesn't work well on FreeBSD
 

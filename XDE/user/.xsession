@@ -13,7 +13,7 @@ export CLICOLOR=1
 
 warn() {
     echo "WARN: $1" >&2
-    { i3-nagbar -f "pango:Hack,DejaVu Sans Mono,monospace 12" -t warning -m "~/.xsession: $1" & } || true
+    { i3-nagbar -f "pango:Hack,DejaVu Sans Mono,monospace 12" -t warning -m "~/.xsession: $1 Please check ~/.xsession-errors." & } || true
 }
 
 
@@ -44,12 +44,28 @@ i=0; while [ $((i+=1)) -le 100 ]; do
 done
 
 
+## detect virtual machine
+case `kenv -q smbios.system.maker`/`kenv -q smbios.system.product` in
+    *VirtualBox*) MACHINE=vbox ;;               # innotek GmbH/VirtualBox
+    *VMware*) MACHINE=vmware ;;                 # VMware, Inc./VMware Virtual Platform
+    *Microsoft*Virtual*) MACHINE=hyperv ;;      # Microsoft Corporation/Virtual Machine
+    *) MACHINE=physical ;;
+esac
+
+
 ## start /usr/local/etc/xdg/autostart/vboxclient.desktop
 ## https://bugs.freebsd.org/bugzilla/buglist.cgi?query_format=advanced&short_desc=VBoxClient&short_desc_type=allwordssubstr
 vboxclient=/usr/local/bin/VBoxClient
-if [ -x $vboxclient-all ]; then
+if [ $MACHINE = vbox -a -x $vboxclient-all ]; then
     sed -e "s|/usr/bin/VBoxClient|$vboxclient|g" $vboxclient-all | sh || warn "$vboxclient-all failed!"
 fi
+
+
+## start /usr/local/etc/xdg/autostart/vmware-user.desktop
+vmware_user=/usr/local/bin/vmware-user-suid-wrapper
+#if [ $MACHINE = vmware -a -x $vmware_user ]; then
+#    $vmware_user || warn "$vmware_user failed!"
+#fi
 
 
 ## start X compositing manager
