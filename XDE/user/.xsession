@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# slim doesn't use login mode for /bin/sh
+[ -e $HOME/.profile ] && . $HOME/.profile
+
 set -euo pipefail
 
 export LANG=en_US.UTF-8
@@ -74,7 +77,7 @@ picom -b || warn "picom failed!"
 
 
 ## affect i3-sensible-terminal
-[ "$TERMINAL" ] || for term in urxvtcd mlterm lxterminal uxterm xterm; do
+[ "${TERMINAL:-}" ] || for term in urxvtcd mlterm lxterminal uxterm xterm; do
     which -s $term && export TERMINAL=$term && break
 done
 
