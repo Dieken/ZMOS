@@ -108,7 +108,10 @@ sysrc slim_enable=YES
 # recommended by xorg-server
 augtool -l /etc/sysctl.conf -s 'set /files/etc/sysctl.conf/kern.evdev.rcpt_mask 6'
 
-# use large resolution, loader.conf(5)
+# disable bell, see vt(4)
+augtool -l /etc/sysctl.conf -s 'set /files/etc/sysctl.conf/kern.vt.enable_bell 0'
+
+# use large resolution, see loader.conf(5)
 loader_sysrc efi_max_resolution="$SCREEN_RESOLUTION"
 
 # use terminus-b32 if not specified, rc.conf(5)
