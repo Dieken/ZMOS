@@ -1,9 +1,28 @@
 #!/bin/sh
 # vi: ft=sh
 
+## redirect logs to ~/.xsession-errors
+fifo=$HOME/.xsession-errors-fifo
+rm -f "$fifo"
+mkfifo -m 0600 "$fifo"
+flog -t -T "%F %T " -l $((1024*1024)) -z $HOME/.xsession-errors < "$fifo" &
+exec >"$fifo" 2>&1
+rm -f "$fifo"
+
+
+## fallback to xterm if anything goes wrong
+failsafe() {
+    xmessage -center 'Check ~/.xsession-errors, fix ~/.xsession, you may start twm to manage windows. Exit the first xterm to quit.' &
+    exec xterm -ls -T Failsafe -geometry 80x24+0+0 -fa monospace -fs 16
+}
+
+trap failsafe EXIT SIGHUP SIGINT SIGPIPE SIGTERM SIGIO
+
+
 # slim doesn't use login mode for /bin/sh
 [ -e $HOME/.profile ] && . $HOME/.profile
 [ -e $HOME/.xprofile ] && . $HOME/.xprofile
+
 
 set -euo pipefail
 
@@ -26,15 +45,6 @@ warn() {
     echo "WARN: $1" >&2
     { i3-nagbar -f "pango:Hack,DejaVu Sans Mono,monospace 12" -t warning -m "~/.xsession: $1 Please check ~/.xsession-errors." & } || true
 }
-
-
-## redirect logs to ~/.xsession-errors
-fifo=$HOME/.xsession-errors-fifo
-rm -f "$fifo"
-mkfifo -m 0600 "$fifo"
-flog -t -T "%F %T " -l $((1024*1024)) -z $HOME/.xsession-errors < "$fifo" &
-exec >"$fifo" 2>&1
-rm -f "$fifo"
 
 
 ## It's said xrandr should be run before loading ~/.Xresources, https://wiki.archlinux.org/index.php/Cursor_themes#Cursor_size_doesn't_change_on_startup
