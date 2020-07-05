@@ -1,7 +1,9 @@
 #!/bin/sh
+# vi: ft=sh
 
 # slim doesn't use login mode for /bin/sh
 [ -e $HOME/.profile ] && . $HOME/.profile
+[ -e $HOME/.xprofile ] && . $HOME/.xprofile
 
 set -euo pipefail
 
@@ -13,6 +15,12 @@ export QT_IM_MODULE=fcitx
 
 export MANWIDTH=tty
 export CLICOLOR=1
+
+: ${XDG_DATA_HOME:=$HOME/.local/share}
+: ${XCURSOR_PATH:=/usr/local/share/icons}
+export XCURSOR_PATH="$XCURSOR_PATH:$XDG_DATA_HOME/icons"
+export XCURSOR_THEME=@@CURSOR_THEME@@
+export XCURSOR_SIZE=@@CURSOR_SIZE@@
 
 warn() {
     echo "WARN: $1" >&2
@@ -29,13 +37,24 @@ exec >"$fifo" 2>&1
 rm -f "$fifo"
 
 
+## It's said xrandr should be run before loading ~/.Xresources, https://wiki.archlinux.org/index.php/Cursor_themes#Cursor_size_doesn't_change_on_startup
+xrandr
+
+
 ## load ~/.Xresources
 resources=$HOME/.Xresources
 [ -r "$resources" ] && xrdb -load "$resources"
 
 
+## set default cursor, https://wiki.archlinux.org/index.php/Cursor_themes#Change_X_shaped_default_cursor
+xsetroot -cursor_name left_ptr
+
+
+## start xsettingsd
+{ xsettingsd & } || warn "xsettingsd failed!"
+
+
 ## prepend user fonts, use `xset q` to check X font paths
-#: ${XDG_DATA_HOME:=$HOME/.local/share}
 #[ -e "$XDG_DATA_HOME/fonts/fonts.dir" ] && xset +fp "$XDG_DATA_HOME/fonts"
 
 

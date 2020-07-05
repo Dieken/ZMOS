@@ -71,6 +71,9 @@ i i3-gaps i3status rofi rofi-calc rofi-pass     # rofi is better than dmenu
 # X compositing manager: picom, compton
 i picom
 
+# X settings daemon
+i xsettingsd
+
 # X terminal emulator: rxvt-unicode, mlterm
 i rxvt-unicode urxvt-font-size urxvt-perls
 
@@ -85,6 +88,7 @@ i dejavu hack-font noto zh-CJKUnifonts
 i augeas dbus flog ImageMagick7 perl5 rsync
 i xdg-utils
 i mkfontscale                   # https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/x-fonts.html
+i adwaita-icon-theme hicolor-icon-theme freedesktop-sound-theme
 
 # Finally, install all packages
 pkg install $PACKAGES
