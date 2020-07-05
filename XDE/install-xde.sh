@@ -98,6 +98,7 @@ loader_sysrc fuse_load=YES
 ifvm vbox sysrc vboxguest_enable=YES vboxservice_enable=YES vboxservice_flags="--disable-timesync"
 
 sysrc dbus_enable=YES
+sysrc moused_enable=YES     # required by system-vmware/usr/local/etc/X11/xorg.conf.d/XDE-vmware.conf.tmpl
 sysrc slim_enable=YES
 
 # recommended by xorg-server

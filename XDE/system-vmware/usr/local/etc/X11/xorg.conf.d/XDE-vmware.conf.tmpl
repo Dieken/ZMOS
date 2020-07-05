@@ -1,5 +1,12 @@
 ## for VMWare
 
+# see xorg.conf(5):
+#   If hotplugging is enabled, InputDevice sections using the mouse, kbd
+#   and vmmouse driver will be ignored.
+Section "ServerFlags"
+    Option          "AutoAddDevices"    "false"
+EndSection
+
 Section "Screen"
     Identifier      "Screen0"
     Device          "Card0"
@@ -11,5 +18,7 @@ EndSection
 Section "InputDevice"
     Identifier      "Mouse0"
     Driver          "vmmouse"
+    # require service "moused" to virtualize real /dev/psm0 into /dev/sysmouse
+    Option          "Device"    "/dev/sysmouse"
 EndSection
 
