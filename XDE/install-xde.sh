@@ -84,6 +84,8 @@ i fcitx-qt5 zh-fcitx zh-fcitx-configtool zh-fcitx-libpinyin zh-fcitx-sunpinyin
 i dejavu hack-font noto zh-CJKUnifonts
 #i powerline-fonts nerd-fonts
 
+i sourcecodepro-ttf
+
 # extra utilities
 i augeas dbus flog ImageMagick7 perl5 rsync
 i xdg-utils
