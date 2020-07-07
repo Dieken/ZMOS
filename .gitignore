@@ -5,6 +5,5 @@
 /XDE/xde.conf.local
 /XDE/generated-system/
 /XDE/generated-user/
-system-backup-*
-user-backup-*
-
+backup-system*
+backup-user*
