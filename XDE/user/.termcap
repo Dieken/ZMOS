@@ -1,0 +1,28 @@
+## FreeBSD base system ships a ncurses library which doesn't have /usr/share/misc/terminfo database,
+## so it uses only termcap database at /usr/share/misc/termcap* and /etc/termcap(actually a symbolic link).
+##
+## Although devel/ncurses provides terminfo database and its .so files, unluckily xterm uses /lib/libncurses.so.8.
+##
+## The termcap capabilities "ti" and "te", the terminfo capabilities "smcup" and "rmcup" are essential for less
+## and vim to clear the alternate screen. Silly FreeBSD does provide some variants to enhance term type "xterm":
+##
+##  $ grep 'xterm.*clear' /etc/termcap
+##  xterm-clear:\
+##  xterm-8bit-clear:\
+##  xterm-r6-clear:\
+##  xterm-r5-clear:\
+##
+##  Linux supports only terminfo, throws away old and less powerful termcap database, so the override below
+##  shouldn't affect Linux.
+##
+##  To find out term types supporting "ti" and "te" (need `pkg install ncurses`):
+##      $ toe /etc/termcap | while read t left; do printf "%-50s %s\n" $t `tput -T $t te >/dev/null 2>/dev/null && echo yes || echo no`; done | grep "xterm.*yes" | sort
+##
+##  To find out term types supporting "smcup" and "rmcup":
+##      $ toe -a | while read t left; do printf "%-50s %s\n" $t `tput -T $t smcup >/dev/null 2>/dev/null && echo yes || echo no`; done | grep "xterm.*yes" | sort
+##
+##  Steal xterm-256color and xterm-clear from /etc/termcap.
+xterm-256color|xterm-256color-clear:\
+        :te=\E[?1049l:ti=\E[?1049h:\
+        :Co#256:pa#32767:\
+        :AB=\E[48;5;%dm:AF=\E[38;5;%dm:tc=xterm-new:
