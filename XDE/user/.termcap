@@ -21,8 +21,8 @@
 ##  To find out term types supporting "smcup" and "rmcup":
 ##      $ toe -a | while read t left; do printf "%-50s %s\n" $t `tput -T $t smcup >/dev/null 2>/dev/null && echo yes || echo no`; done | grep "xterm.*yes" | sort
 ##
-##  Steal xterm-256color and xterm-clear from /etc/termcap.
-xterm-256color|xterm-256color-clear:\
+##  Steal xterm-256color and xterm-clear from /etc/termcap, override definitions for xterm and xterm-256color.
+xterm|xterm-256color|xterm-256color-clear:\
         :te=\E[?1049l:ti=\E[?1049h:\
         :Co#256:pa#32767:\
         :AB=\E[48;5;%dm:AF=\E[38;5;%dm:tc=xterm-new:
