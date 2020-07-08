@@ -132,6 +132,11 @@ rsync -rlcv -b --backup-dir "$PWD/backup-system-$TIMESTAMP" \
     --exclude "*.sample" --exclude "*.tmpl" --exclude ".*.sw*" --exclude "*~" --exclude ".DS_Store" --exclude ".git*" \
     "$XDE_HOME/system/" "$XDE_HOME/system-$MACHINE/" "$XDE_HOME/generated-system/" /
 
+: ${SUDO_USER:=$DOAS_USER}
+: ${SUDO_USER:=$LOGNAME}
+: ${SUDO_USER:=$USER}
+[ "$SUDO_USER" != "root" ] && [ -e "$PWD/backup-system-$TIMESTAMP" ] && chown -R "$SUDO_USER" "$PWD/backup-system-$TIMESTAMP"
+
 ifvm vmware chmod 555 /usr/local/etc/rc.d/xde-vmware-vmblock-fuse
 
 rm -rf "$XDE_HOME/generated-system/"
