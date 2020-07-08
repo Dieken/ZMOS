@@ -1,8 +1,7 @@
 # ZMOS - A small desktop operating system
 
-Regards to Zilog Z80 and MOS 6502, experiment to see how usable a
-FreeBSD based desktop operating system could be with some suckless
-software.
+Hats off to the Zilog Z80 and MOS 6502, experiment and see how usable a
+FreeBSD based desktop operating system can be with some good small software.
 
 ## Philosophy and Principle
 
