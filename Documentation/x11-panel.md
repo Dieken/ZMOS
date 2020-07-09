@@ -12,8 +12,9 @@
 
 ## Candidates
 
-* tint2
-* i3bar + i3status: 
+* i3bar + i3blocks: support click, all information are from external shell script
+* i3bar + i3status: i3status is mainly for Linux, doesn't support memory information for FreeBSD.
 * fbpanel: doesn't work in i3 and awesome
-* polybar: doesn't work well on FreeBSD
+* polybar: mainly for Linux, doesn't work well on FreeBSD
+* tint2: too many options :-P
 
