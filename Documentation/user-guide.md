@@ -61,8 +61,8 @@ References:
 ### rxvt-unicode
 
 Important shortcuts:
-* <kbd>Ctrl + Alt + c</kbd>: copy (due to extension `selection-to-clipboard`, this is not required)
-* <kbd>Ctrl + Alt + v</kbd>: paste
+* <kbd>Ctrl + Shift + C</kbd>: copy (due to extension `selection-to-clipboard`, this is not required)
+* <kbd>Ctrl + Shift + V</kbd>: paste
 * <kbd>Alt + escape</kbd>: activate `keyboard-select`, see https://github.com/muennich/urxvt-perls/
 * <kbd>Alt + s</kbd>: backward search, see https://github.com/muennich/urxvt-perls/
 * <kbd>Ctrl + +</kbd>: increase font size
