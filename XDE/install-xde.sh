@@ -61,7 +61,7 @@ i slim slim-themes
 #i xsm
 
 # X window manager: i3, awesome, openbox, icewm, windowmaker, fvwm
-i i3-gaps i3status rofi rofi-calc rofi-pass     # rofi is better than dmenu
+i i3-gaps i3blocks rofi rofi-calc rofi-pass     # rofi is better than dmenu
 #i awesome awesome-vicious conky-awesome
 #i openbox tint2 # fbpanel is another good panel
 #i icewm
@@ -129,7 +129,7 @@ done
 
 
 rsync -rlcv -b --backup-dir "$PWD/backup-system-$TIMESTAMP" \
-    --exclude "*.sample" --exclude "*.tmpl" --exclude ".*.sw*" --exclude "*~" --exclude ".DS_Store" --exclude ".git*" \
+    --exclude "*.append" --exclude "*.sample" --exclude "*.tmpl" --exclude ".*.sw*" --exclude "*~" --exclude ".DS_Store" --exclude ".git*" \
     "$XDE_HOME/system/" "$XDE_HOME/system-$MACHINE/" "$XDE_HOME/generated-system/" /
 
 : ${SUDO_USER:=$DOAS_USER}

@@ -33,6 +33,8 @@ cp -a "$XDE_HOME/user" "$XDE_HOME/generated-user"
     t=${f#$XDE_HOME/*/}
     t=${t%.tmpl}
     mkdir -p "$XDE_HOME/generated-user/`dirname $t`"
+    [ ${t%.append} = $t ] && rm -f "$XDE_HOME/generated-user/${t%.append}"
+    t=${t%.append}
     if [ ${f%.tmpl} = $f ]; then
         cat "$f"
     else
@@ -43,7 +45,7 @@ done
 
 
 rsync -acv -b --backup-dir "$PWD/backup-user-$TIMESTAMP" \
-    --exclude "*.sample" --exclude "*.tmpl" --exclude ".*.sw*" --exclude "*~" --exclude ".DS_Store" --exclude ".git*" \
+    --exclude "*.append" --exclude "*.sample" --exclude "*.tmpl" --exclude ".*.sw*" --exclude "*~" --exclude ".DS_Store" --exclude ".git*" \
     "$XDE_HOME/generated-user/" $HOME/
 
 rm -rf "$XDE_HOME/generated-user/"
