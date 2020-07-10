@@ -33,8 +33,8 @@ XTerm*vt100.translations :  #override \n\
     Ctrl <Key> plus       : larger-vt-font() \n\
     Ctrl <Key> 0          : set-vt-font(d)
 XTerm*cjkWidth           :  false
-XTerm*faceName           :  Hack,DejaVu Sans Mono,monospace
-XTerm*faceNameDoublesize :  Noto Sans Mono CJK SC-@@WIDE_FONT_SIZE@@,monospace-@@WIDE_FONT_SIZE@@
+XTerm*faceName           :  @@LATIN_MONO_FONT@@,monospace
+XTerm*faceNameDoublesize :  @@NONLATIN_MONO_FONT@@-@@WIDE_FONT_SIZE@@,monospace-@@WIDE_FONT_SIZE@@
 XTerm*faceSize           :  @@FONT_SIZE@@
 XTerm*faceSize1          :  8
 XTerm*faceSize2          :  10
@@ -70,8 +70,8 @@ UXTerm*vt100.translations :  #override \n\
     Ctrl <Key> plus       : larger-vt-font() \n\
     Ctrl <Key> 0          : set-vt-font(d)
 UXTerm*cjkWidth           :  false
-UXTerm*faceName           :  Hack,DejaVu Sans Mono,monospace
-UXTerm*faceNameDoublesize :  Noto Sans Mono CJK SC-@@WIDE_FONT_SIZE@@,monospace-@@WIDE_FONT_SIZE@@
+UXTerm*faceName           :  @@LATIN_MONO_FONT@@,monospace
+UXTerm*faceNameDoublesize :  @@NONLATIN_MONO_FONT@@-@@WIDE_FONT_SIZE@@,monospace-@@WIDE_FONT_SIZE@@
 UXTerm*faceSize           :  @@FONT_SIZE@@
 UXTerm*faceSize1          :  8
 UXTerm*faceSize2          :  10
@@ -90,9 +90,9 @@ UXTerm*trimSelection      :  true
 UXTerm*eightBitInput      :  false
 
 !! urxvt
-! URxvt renders Noto Sans Mono CJK SC very ugly, so we choose UMing.
-!URxvt.font              :  xft:Hack-@@FONT_SIZE@@,xft:DejaVu Sans Mono-@@FONT_SIZE@@,xft:Noto Sans Mono CJK SC-@@WIDE_FONT_SIZE@@,xft:monospace-@@WIDE_FONT_SIZE@@
-URxvt.font               :  xft:Hack-@@FONT_SIZE@@,xft:DejaVu Sans Mono-@@FONT_SIZE@@,xft:AR PL UMing CN-@@WIDE_FONT_SIZE@@,xft:monospace-@@WIDE_FONT_SIZE@@
+! URxvt renders "Noto Sans Mono CJK SC" very ugly, so we choose UMing.
+!URxvt.font              :  xft:@@LATIN_MONO_FONT@@-@@FONT_SIZE@@,xft:@@NONLATIN_MONO_FONT@@-@@WIDE_FONT_SIZE@@,xft:monospace-@@WIDE_FONT_SIZE@@
+URxvt.font               :  xft:@@LATIN_MONO_FONT@@-@@FONT_SIZE@@,xft:AR PL UMing CN-@@WIDE_FONT_SIZE@@,xft:monospace-@@WIDE_FONT_SIZE@@
 URxvt.letterSpace        :  -1
 URxvt.skipBuiltinGlyphs  :  true
 URxvt.saveLines          :  1024

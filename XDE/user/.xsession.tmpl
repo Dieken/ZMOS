@@ -43,7 +43,7 @@ export XCURSOR_SIZE=@@CURSOR_SIZE@@
 
 warn() {
     echo "WARN: $1" >&2
-    { i3-nagbar -f "pango:Hack,DejaVu Sans Mono,monospace 12" -t warning -m "~/.xsession: $1 Please check ~/.xsession-errors." & } || true
+    { i3-nagbar -f "pango:@@LATIN_MONO_FONT@@,monospace 12" -t warning -m "~/.xsession: $1 Please check ~/.xsession-errors." & } || true
 }
 
 
