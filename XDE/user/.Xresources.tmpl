@@ -20,16 +20,18 @@ XTerm*loginShell         :  true
 XTerm*termName           :  xterm-256color
 XTerm*saveLines          :  1024
 XTerm*selectToClipboard  :  true
+! Here we actually unbind Alt+Return: https://unix.stackexchange.com/questions/177727/how-do-i-remove-a-particular-default-xterm-x11-translation
 XTerm*vt100.translations :  #override \n\
-    Ctrl Shift <Key> C: copy-selection(CLIPBOARD) \n\
-    Ctrl Shift <Key> V: insert-selection(CLIPBOARD) \n\
-    ~Shift <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n\
-    Shift <Btn1Up>: exec-selectable("xdg-open '%t'", word) \n\
-    Shift <KeyPress> Up: scroll-back(1, page) \n\
-    Shift <KeyPress> Down: scroll-forw(1, page) \n\
-    Ctrl <Key> minus: smaller-vt-font() \n\
-    Ctrl <Key> plus: larger-vt-font() \n\
-    Ctrl <Key> 0: set-vt-font(d)
+    Alt <Key>Return       : insert-eight-bit() \n\
+    Ctrl Shift <Key> C    : copy-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key> V    : insert-selection(CLIPBOARD) \n\
+    ~Shift <Btn1Up>       : select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n\
+    Shift <Btn1Up>        : exec-selectable("xdg-open '%t'", word) \n\
+    Shift <KeyPress> Up   : scroll-back(1, page) \n\
+    Shift <KeyPress> Down : scroll-forw(1, page) \n\
+    Ctrl <Key> minus      : smaller-vt-font() \n\
+    Ctrl <Key> plus       : larger-vt-font() \n\
+    Ctrl <Key> 0          : set-vt-font(d)
 XTerm*cjkWidth           :  true
 XTerm*faceName           :  Hack,DejaVu Sans Mono,monospace
 XTerm*faceNameDoublesize :  Noto Sans Mono CJK SC-@@WIDE_FONT_SIZE@@,monospace-@@WIDE_FONT_SIZE@@
@@ -55,16 +57,18 @@ UXTerm*loginShell         :  true
 UXTerm*termName           :  xterm-256color
 UXTerm*saveLines          :  1024
 UXTerm*selectToClipboard  :  true
+! Here we actually unbind Alt+Return: https://unix.stackexchange.com/questions/177727/how-do-i-remove-a-particular-default-xterm-x11-translation
 UXTerm*vt100.translations :  #override \n\
-    Ctrl Shift <Key> C: copy-selection(CLIPBOARD) \n\
-    Ctrl Shift <Key> V: insert-selection(CLIPBOARD) \n\
-    ~Shift <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n\
-    Shift <Btn1Up>: exec-selectable("xdg-open '%t'", word) \n\
-    Shift <KeyPress> Up: scroll-back(1, page) \n\
-    Shift <KeyPress> Down: scroll-forw(1, page) \n\
-    Ctrl <Key> minus: smaller-vt-font() \n\
-    Ctrl <Key> plus: larger-vt-font() \n\
-    Ctrl <Key> 0: set-vt-font(d)
+    Alt <Key>Return       : insert-eight-bit() \n\
+    Ctrl Shift <Key> C    : copy-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key> V    : insert-selection(CLIPBOARD) \n\
+    ~Shift <Btn1Up>       : select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0) \n\
+    Shift <Btn1Up>        : exec-selectable("xdg-open '%t'", word) \n\
+    Shift <KeyPress> Up   : scroll-back(1, page) \n\
+    Shift <KeyPress> Down : scroll-forw(1, page) \n\
+    Ctrl <Key> minus      : smaller-vt-font() \n\
+    Ctrl <Key> plus       : larger-vt-font() \n\
+    Ctrl <Key> 0          : set-vt-font(d)
 UXTerm*cjkWidth           :  true
 UXTerm*faceName           :  Hack,DejaVu Sans Mono,monospace
 UXTerm*faceNameDoublesize :  Noto Sans Mono CJK SC-@@WIDE_FONT_SIZE@@,monospace-@@WIDE_FONT_SIZE@@
