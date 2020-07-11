@@ -106,7 +106,8 @@ picom -b || warn "picom failed!"
 
 
 ## affect i3-sensible-terminal
-[ "${TERMINAL:-}" ] || for term in urxvtcd mlterm lxterminal uxterm xterm; do
+# [ "${TERMINAL:-}" ] || for term in urxvtcd mlterm lxterminal uxterm xterm; do
+[ "${TERMINAL:-}" ] || for term in @@TERM_LIST@@; do
     which -s $term && export TERMINAL=$term && break
 done
 
