@@ -1,0 +1,17 @@
+#!/bin/sh
+
+loadavg=$(sysctl -n vm.loadavg)     # "{ load1m load5m load15m }"
+loadavg=${loadavg#* }
+loadavg=${loadavg% *}
+
+load1m=${loadavg%% *}
+
+if [ "$BLOCK_BUTTON" = 1 ]; then
+    load15m=${loadavg##* }
+    load5m=${loadavg#* }
+    load5m=${load5m% *}
+    echo "Load: 1m=$load1m 5m=$load5m 15m=$load15m"
+else
+    echo $load1m
+fi
+

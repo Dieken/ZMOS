@@ -1,0 +1,74 @@
+#!/bin/sh
+
+# See https://github.com/freebsd/freebsd/blob/master/share/man/man4/acpi_battery.4
+#     https://www.w3schools.com/icons/fontawesome5_icons_energy.asp
+
+color0="#e60000"
+color25="#ff9900"
+color50="#ffff00"
+color75="#99ff33"
+color100="#66ffff"
+color_full="#00cccc"
+
+battery0=""
+battery25=""
+battery50=""
+battery75=""
+battery100=""
+
+icon_plus=""
+icon_minus=""
+
+Blife=$(sysctl  -n hw.acpi.battery.life)        # capacity in percent
+Bstate=$(sysctl -n hw.acpi.battery.state)       # 0 full, 1 Discharging, 2 Charging, 3 invalid, 4 critical, 1|4=5 critical discharging, 2|4=6 critical charging
+Btime=$(sysctl  -n hw.acpi.battery.time)        # remaining life in minutes, -1 means not discharging right now
+
+[ "$Blife" -a "$Bstate" -a "$Btime" ] || {
+    echo
+    exit
+}
+
+if [ $Blife -ge 100 ]; then
+    symbol="$battery100"
+    color=$color_full
+elif [ $Blife -ge 80 ]; then
+    symbol="$battery100"
+    color=$color100
+elif [ $Blife -ge 60 ]; then
+    symbol="$battery75"
+    color=$color75
+elif [ $Blife -ge 40 ]; then
+    symbol="$battery50"
+    color=$color50
+elif [ $Blife -ge 20 ]; then
+    symbol="$battery25"
+    color=$color25
+else
+    symbol="$battery0"
+    color=$color0
+fi
+
+if [ "$((Bstate & 3))" = 2 ]; then
+    symbol="$symbol<sup> $icon_plus</sup>"
+elif [ "$((Bstate & 3))" = 1 ]; then
+    symbol="$symbol<sup> $icon_minus</sup>"
+fi
+
+if [ $Btime -ge 60 ]; then
+    hour=$(( Btime / 60 ))
+    min=$(( Btime - hour * 60 ))
+    time=" ${hour}h${min}m"
+elif [ $Btime -ge 0 ]; then
+    time=" ${Btime}m"
+fi
+
+if [ "$BLOCK_BUTTON" = 1 ]; then
+    acline=$(sysctl -n hw.acpi.acline)              # 1 acline, 0 battery
+    rate=$(sysctl   -n hw.acpi.battery.rate)        # discharging rate in mW, -1 means not discharging right now
+    [ "$acline" = 0 ] && msg="On battery" || msg="On AC"
+    [ "$rate" = -1 ] || msg="$msg, discharging in $rate mW"
+    echo "<span foreground=\"$color\">$msg</span>"
+else
+    echo "<span foreground=\"$color\">$symbol $Blife%$time</span>"
+fi
+

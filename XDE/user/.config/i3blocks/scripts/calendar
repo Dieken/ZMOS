@@ -1,0 +1,10 @@
+#!/bin/sh
+
+datefmt=" %b %e, %a  %H:%M:%S"
+
+[ "$BLOCK_BUTTON" ] &&
+	i3-msg -q "exec yad --calendar \
+	    --undecorated --fixed --mouse --on-top --skip-taskbar \
+	    --close-on-unfocus --no-buttons >/dev/null"
+
+date "+$datefmt"

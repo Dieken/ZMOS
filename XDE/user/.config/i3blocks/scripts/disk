@@ -1,0 +1,10 @@
+#!/bin/sh
+
+iostat -d -t da -x -h | sed -ne '3p' | {
+    read device rs ws krs kws msr msw mso mst qlen busy left
+    if [ "$BLOCK_BUTTON" = 1 ]; then
+        echo "Disk $device: r/s=$rs w/s=$ws kr/s=$krs kw/s=$kws qlen=$qlen busy=$busy%"
+    else
+        echo "$device $krs $kws"
+    fi
+}

@@ -80,8 +80,11 @@ i rxvt-unicode urxvt-font-size urxvt-perls
 # X input method
 i fcitx-qt5 zh-fcitx zh-fcitx-configtool zh-fcitx-libpinyin zh-fcitx-sunpinyin
 
+# Pulse Audio
+i pulseaudio pavucontrol
+
 # extra fonts
-i dejavu hack-font noto zh-CJKUnifonts
+i dejavu hack-font noto zh-CJKUnifonts font-awesome
 #i powerline-fonts nerd-fonts
 
 # extra utilities
@@ -89,6 +92,7 @@ i augeas dbus flog ImageMagick7 perl5 rsync
 i xdg-utils
 i mkfontscale                   # https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/x-fonts.html
 i adwaita-icon-theme hicolor-icon-theme freedesktop-sound-theme
+i yad
 
 # Finally, install all packages
 pkg install $PACKAGES

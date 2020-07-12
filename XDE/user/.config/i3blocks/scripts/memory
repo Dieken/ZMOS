@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# see sysctl(3) and https://people.freebsd.org/~rse/dist/freebsd-memory
+
+MB=1048576
+
+phys_mem=$(sysctl -n hw.physmem)
+phys_mem=$(( phys_mem / MB ))
+
+page_size=$(sysctl -n hw.pagesize)
+
+active=$(sysctl   -n vm.stats.vm.v_active_count)
+inactive=$(sysctl -n vm.stats.vm.v_inactive_count)
+cache=$(sysctl    -n vm.stats.vm.v_cache_count)
+free=$(sysctl     -n vm.stats.vm.v_free_count)
+
+active_mem=$(( active * page_size / MB ))
+inactive_mem=$(( inactive * page_size / MB ))
+cache_mem=$(( cache * page_size / MB ))
+free_mem=$(( free * page_size / MB ))
+
+avail_mem=$(( inactive_mem + cache_mem + free_mem ))
+used_mem=$(( phys_mem - avail_mem ))
+
+if [ "$BLOCK_BUTTON" = 1 ]; then
+    echo "Mem: used=$used_mem(active=$active_mem) + avail=$avail_mem(inactive=$inactive_mem cache=$cache_mem free=$free_mem) MB"
+else
+    echo "$(( used_mem * 100 / phys_mem ))% $used_mem ($active_mem)"
+fi
+
