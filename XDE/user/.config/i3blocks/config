@@ -42,7 +42,7 @@ label=
 command=~/.config/i3blocks/scripts/net
 interval=5
 color=#77a8d7
-min_width=em0  999KB/s  999KB/s
+min_width=em0  99KB/s  99KB/s
 
 [load]
 label=
