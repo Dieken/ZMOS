@@ -18,17 +18,17 @@ command=~/.config/i3blocks/scripts/memory
 interval=10
 color=#77a8d7
 
-[disk]
-label=
-command=~/.config/i3blocks/scripts/disk
-interval=5
-color=#77a8d7
+#[disk]
+#label=
+#command=~/.config/i3blocks/scripts/disk
+#interval=5
+#color=#77a8d7
 
-[net]
-label=
-command=~/.config/i3blocks/scripts/net
-interval=5
-color=#77a8d7
+#[net]
+#label=
+#command=~/.config/i3blocks/scripts/net
+#interval=5
+#color=#77a8d7
 
 [load]
 label=
