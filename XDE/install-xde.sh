@@ -80,8 +80,10 @@ i rxvt-unicode urxvt-font-size urxvt-perls
 # X input method
 i fcitx-qt5 zh-fcitx zh-fcitx-configtool zh-fcitx-libpinyin zh-fcitx-sunpinyin
 
-# Pulse Audio
-i pulseaudio pavucontrol
+# sound server: Pulse Audio, Jack, Pipewire, FreeBSD kernel mixer + sndiod + virtual_oss
+#i pulseaudio pavucontrol
+#i jackit       # FreeBSD doesn't have Jack 2 yet
+#i pipewire
 
 # extra fonts
 i dejavu hack-font noto zh-CJKUnifonts font-awesome
