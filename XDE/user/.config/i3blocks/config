@@ -6,18 +6,6 @@ separator=true
 separator_block_width=21
 markup=pango
 
-[battery]
-label=
-command=~/.config/i3blocks/scripts/battery
-interval=10
-color=#66b3ff
-
-[volume]
-label=
-command=~/.config/i3blocks/scripts/volume
-interval=1
-signal=1
-
 [cpu]
 label=
 command=~/.config/i3blocks/scripts/cpu
@@ -33,22 +21,32 @@ color=#77a8d7
 [disk]
 label=
 command=~/.config/i3blocks/scripts/disk
-interval=10
+interval=5
 color=#77a8d7
-min_width=da0 9999.9 9999.9
 
 [net]
 label=
 command=~/.config/i3blocks/scripts/net
 interval=5
 color=#77a8d7
-min_width=em0  99KB/s  99KB/s
 
 [load]
 label=
 command=~/.config/i3blocks/scripts/load
 interval=10
 color=#6666ff
+
+[volume]
+label=
+command=~/.config/i3blocks/scripts/volume
+interval=1
+signal=1
+
+[battery]
+label=
+command=~/.config/i3blocks/scripts/battery
+interval=10
+color=#66b3ff
 
 [calendar]
 label=

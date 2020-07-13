@@ -5,6 +5,6 @@ iostat -d -t da -x -h | sed -ne '3p' | {
     if [ "$BLOCK_BUTTON" = 1 ]; then
         echo "Disk $device: r/s=$rs w/s=$ws kr/s=$krs kw/s=$kws qlen=$qlen busy=$busy%"
     else
-        echo "$device $krs $kws"
+        printf "$device %-6s %-6s\n" $krs $kws
     fi
 }

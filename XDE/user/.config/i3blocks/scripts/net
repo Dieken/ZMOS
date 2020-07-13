@@ -33,6 +33,6 @@ netstat -I "$interface" -w 1 -q 1 -d | sed -ne '3p' | {
 
         echo "Net $interface: $msg"
     else
-        echo "$interface  $rx  $tx"
+        printf "$interface  %-7s  %-7s\n" $rx $tx
     fi
 }
