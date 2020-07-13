@@ -1,6 +1,6 @@
 #!/bin/sh
 
-datefmt=" %b %e, %a  %H:%M:%S"
+datefmt=" @@BLOCKLET_CALENDAR_DATE_FMT@@  @@BLOCKLET_CALENDAR_TIME_FMT@@"
 
 [ "$BLOCK_BUTTON" ] &&
 	i3-msg -q "exec yad --calendar \
