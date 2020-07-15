@@ -1,10 +1,11 @@
 #!/bin/sh
 
-iostat -t proc | sed -ne '3p' | {
+# need at least 2 stats to get accurate result
+iostat -t proc -c 2 | sed -ne '$p' | {
     read ttyin ttyout user nice sys intr idle left
     if [ "$BLOCK_BUTTON" = 1 ]; then
         echo "CPU: user=$user% nice=$nice% sys=$sys% intr=$intr% idle=$idle%"
     else
-        echo "$((100 - idle))%"
+        printf "%-4s\n" "$((100 - idle))%"
     fi
 }

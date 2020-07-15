@@ -3,29 +3,29 @@
 humanize() {
     local n=$1
 
-    [ $n -lt 1024 ] && { RESULT="${n}B/s"; return; }
+    [ $n -lt 1024 ] && { RESULT="${n}B"; return; }
 
-    n=$(( n / 1024 )); [ $n -lt 1024 ] && { RESULT="${n}KB/s"; return; }
-    n=$(( n / 1024 )); [ $n -lt 1024 ] && { RESULT="${n}MB/s"; return; }
-    n=$(( n / 1024 )); RESULT="${n}GB/s"
+    n=$(( n / 1024 )); [ $n -lt 1024 ] && { RESULT="${n}K"; return; }
+    n=$(( n / 1024 )); [ $n -lt 1024 ] && { RESULT="${n}M"; return; }
+    n=$(( n / 1024 )); RESULT="${n}G"
 }
 
 interface=`netstat -rn4 | grep ^default | head -n 1`
 interface=${interface##* }
 
-netstat -I "$interface" -w 1 -q 1 -d | sed -ne '3p' | {
+netstat -I "$interface" -w 1 -q 1 -d | sed -ne '$p' | {
     read ipackets ierrs idrops ibytes opackets oerrs obytes colls odrops left
 
     humanize $ibytes; rx=$RESULT
     humanize $obytes; tx=$RESULT
 
     if [ "$BLOCK_BUTTON" = 1 ]; then
-        msg="rx=$rx"
+        msg="rx=$rx/s"
         msg="$msg ipkt=$ipackets"
         [ $ierrs = 0 ] || msg="$msg ierr=$ierrs"
         [ $idrops = 0 ] || msg="$msg idrop=$idrops"
 
-        msg="$msg tx=$tx"
+        msg="$msg tx=$tx/s"
         msg="$msg opkt=$opackets"
         [ $oerrs = 0 ] || msg="$msg oerr=$oerrs"
         [ $odrops = 0 ] || msg="$msg odrop=$odrops"
@@ -33,6 +33,6 @@ netstat -I "$interface" -w 1 -q 1 -d | sed -ne '3p' | {
 
         echo "Net $interface: $msg"
     else
-        printf "$interface  %-7s  %-7s\n" $rx $tx
+        printf "$interface  %-4s  %-4s\n" $rx $tx
     fi
 }

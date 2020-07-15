@@ -1,10 +1,11 @@
 #!/bin/sh
 
-iostat -d -t da -x -h | sed -ne '3p' | {
+# need at least 2 stats to get accurate result
+iostat -d -t da -x -h -c 2 | sed -ne '$p' | {
     read device rs ws krs kws msr msw mso mst qlen busy left
     if [ "$BLOCK_BUTTON" = 1 ]; then
         echo "Disk $device: r/s=$rs w/s=$ws kr/s=$krs kw/s=$kws qlen=$qlen busy=$busy%"
     else
-        printf "$device %-6s %-6s\n" $krs $kws
+        printf "$device %-4s %-4s\n" $((${krs%.*}/1024))M $((${kws%.*}/1024))M
     fi
 }
