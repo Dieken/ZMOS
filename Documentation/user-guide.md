@@ -60,6 +60,8 @@ References:
 2. http://xpt.sourceforge.net/techdocs/nix/x/fonts/xf21-XOrgFontConfiguration/single/
 3. https://github.com/jgneff/openjdk-freetype
 4. http://rastertragedy.com/RTRCh2.htm#Sec21
+5. https://github.com/openSUSE/fonts-config
+6. https://gitlab.freedesktop.org/xorg/lib/libxft/-/issues/6
 
 ## Terminal Emulator
 
