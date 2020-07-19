@@ -93,4 +93,5 @@ Important shortcuts:
 15. xsetroot, hxsetroot
 16. xvinfo
 17. xwininfo
+18. [keyboard shortcuts](https://wiki.archlinux.org/index.php/Keyboard_shortcuts#Xorg)
 
