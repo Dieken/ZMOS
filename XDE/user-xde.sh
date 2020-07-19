@@ -50,5 +50,7 @@ rsync -acv -b --backup-dir "$PWD/backup-user-$TIMESTAMP" \
 
 rm -rf "$XDE_HOME/generated-user/"
 
+fc-cache -frv
+
 echo -e "\n\nDone, you'd better logout now!\n"
 
