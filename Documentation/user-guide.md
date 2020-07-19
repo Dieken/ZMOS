@@ -50,6 +50,11 @@ mkfontdir -e /usr/local/share/fonts/encodings
 xset fp rehash
 ```
 
+Check which font is used for a character:
+```
+XFT_DEBUG=1 pango-view --backend=xft --text="😂"
+```
+
 References:
 1. https://wiki.archlinux.org/index.php/Font_configuration
 2. http://xpt.sourceforge.net/techdocs/nix/x/fonts/xf21-XOrgFontConfiguration/single/
