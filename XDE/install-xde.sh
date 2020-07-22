@@ -78,7 +78,7 @@ i xsettingsd
 i rxvt-unicode urxvt-font-size urxvt-perls
 
 # X input method
-i fcitx-qt5 zh-fcitx zh-fcitx-configtool zh-fcitx-libpinyin zh-fcitx-sunpinyin
+i fcitx-qt5 zh-fcitx zh-fcitx-configtool zh-fcitx-libpinyin zh-fcitx-sunpinyin zh-fcitx-rime
 
 # sound server: Pulse Audio, Jack, Pipewire, FreeBSD kernel mixer + sndiod + virtual_oss
 #i pulseaudio pavucontrol
