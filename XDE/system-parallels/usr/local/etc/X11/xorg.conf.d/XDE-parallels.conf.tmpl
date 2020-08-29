@@ -1,0 +1,15 @@
+## for Parallels
+
+Section "Device"
+    Identifier      "Card0"
+    Driver          "scfb"
+EndSection
+
+Section "Screen"
+    Identifier      "Screen0"
+    Device          "Card0"
+    SubSection      "Display"
+        Modes       "@@SCREEN_RESOLUTION@@"
+    EndSubSection
+EndSection
+

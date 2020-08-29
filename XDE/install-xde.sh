@@ -24,6 +24,7 @@ case `kenv -q smbios.system.maker`/`kenv -q smbios.system.product` in
     *VirtualBox*) MACHINE=vbox ;;               # innotek GmbH/VirtualBox
     *VMware*) MACHINE=vmware ;;                 # VMware, Inc./VMware Virtual Platform
     *Microsoft*Virtual*) MACHINE=hyperv ;;      # Microsoft Corporation/Virtual Machine
+    *Parallels*) MACHINE=parallels ;;           # Parallels Software International Inc./Parallels Virtual Platform
 esac
 
 ########################################################################
@@ -50,9 +51,10 @@ ifvm () {
 # X server
 i xorg
 
-# VirtualBox additions
+# Virtual machine additions
 ifvm vmware i xf86-video-vmware xf86-input-vmmouse open-vm-tools
 ifvm vbox i xf86-video-vmware virtualbox-ose-additions
+ifvm parallels i parallels-tools
 
 # X display manager: slim, xdm
 i slim slim-themes
@@ -106,6 +108,7 @@ pkg install $PACKAGES
 loader_sysrc fuse_load=YES
 
 ifvm vbox sysrc vboxguest_enable=YES vboxservice_enable=YES vboxservice_flags="--disable-timesync"
+ifvm parallels sysrc kld_list+=if_pvmnet
 
 sysrc dbus_enable=YES
 sysrc moused_enable=YES     # required by system-vmware/usr/local/etc/X11/xorg.conf.d/XDE-vmware.conf.tmpl

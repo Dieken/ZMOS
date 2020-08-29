@@ -9,7 +9,7 @@ FreeBSD based desktop operating system can be with some good small software.
 * As less system level customization as possible, the DE experience is limited to single user
 * Balance between usability and disk & memory size, pick as suckless software as possible
 
-## Run on VirtualBox/VMWare
+## Run on VirtualBox/VMWare/Parallels
 
 1. Adjust screen resolution for XDE:
     1. macOS: Check `System Preferences -> Displays -> Display` for your screen resolution, it's 1680x1050 by default on MacBook Pro 15-inch screen. If you use different resolution, you need customize `XDE/xde.conf` by `XDE/xde.conf.local`, notice the resolution for ZMOS is doubled because Apple Retina display runs "pixel doubled".
@@ -47,6 +47,14 @@ FreeBSD based desktop operating system can be with some good small software.
          * Cancel "Synchronize time" because FreeBSD has ntpd running
          * Enable "Pass power status to VM"
          * Fimware type: UEFI
+   * **Parallels Desktop**
+      1. At the last step of creating virtual machine, make sure to select "Customize settings before installation"
+      2. In the configuration window:
+         * Hardware -> Boot Order: Advanced Settings -> BIOS "EFI 64-bit"
+         * Hardware -> CPU & Memory: Processors "2", Memory "2048 MB"
+         * Hardware -> Graphics: Memory "512MB(Recommended)", Resolution "More Space"
+      3. Parallels Desktop -> Preferences
+         * Shortcuts -> macOS System Shortcuts: Send macOS system shortcuts "Always" (so that Ctrl-Space will be sent to FreeBSD)
 5. Install FreeBSD 12.1, create a normal user
 6. Download ZMOS/ to home directory, run commands below:
    ```sh
