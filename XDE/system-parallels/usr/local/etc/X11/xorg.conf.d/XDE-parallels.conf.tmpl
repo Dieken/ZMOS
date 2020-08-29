@@ -5,6 +5,9 @@ Section "Device"
     Driver          "scfb"
 EndSection
 
+# Driver "scfb" doesn't use "Modes" here, it always use current
+# mode selected by UEFI GOP, you may check it at bootloader with
+# command "gop list".
 Section "Screen"
     Identifier      "Screen0"
     Device          "Card0"
