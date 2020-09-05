@@ -69,7 +69,7 @@ i slim slim-themes
 i i3-gaps i3blocks rofi rofi-calc rofi-pass     # rofi is better than dmenu
 #i awesome awesome-vicious conky-awesome
 #i openbox tint2 # fbpanel is another good panel
-#i icewm
+i icewm
 #i windowmaker
 #i fvwm
 
@@ -101,6 +101,9 @@ i mkfontscale                   # https://www.freebsd.org/doc/en_US.ISO8859-1/bo
 i adwaita-icon-theme hicolor-icon-theme freedesktop-sound-theme
 i yad
 i smartmontools
+
+# wine
+i i386-wine wine-gecko wine-mono winetricks
 
 # Finally, install all packages
 pkg install $PACKAGES
