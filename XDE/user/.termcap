@@ -24,5 +24,10 @@
 ##  Steal xterm-256color and xterm-clear from /etc/termcap, override definitions for xterm, xterm-color and xterm-256color.
 xterm|xterm-color|xterm-256color|xterm-256color-clear:\
         :te=\E[?1049l:ti=\E[?1049h:\
+        :ZH=\E[3m:ZR=\E[23m:\
         :Co#256:pa#32767:\
         :AB=\E[48;5;%dm:AF=\E[38;5;%dm:tc=xterm-new:
+
+rxvt-unicode-256color|rxvt-unicode terminal with 256 colors (X Window System):\
+        :ZH=\E[3m:ZR=\E[23m:\
+        :tc=rxvt-256color:
