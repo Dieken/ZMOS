@@ -9,7 +9,7 @@ redirect_log() {
     local fifo=$HOME/.xsession-errors-fifo
     rm -f "$fifo"
     mkfifo -m 0600 "$fifo"
-    flog -t -T "%F %T " -l $((1024*1024)) -z $HOME/.xsession-errors < "$fifo" &
+    flog -T "%F %T " -l $((1024*1024)) -z $HOME/.xsession-errors < "$fifo" &
     exec >"$fifo" 2>&1
     rm -f "$fifo"
 }
