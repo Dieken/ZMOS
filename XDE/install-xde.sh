@@ -51,6 +51,9 @@ ifvm () {
 # X server
 i xorg
 
+# DRM kernel modules
+i drm-kmod
+
 # Virtual machine additions
 ifvm vmware i xf86-video-vmware xf86-input-vmmouse open-vm-tools
 ifvm vbox i xf86-video-vmware virtualbox-ose-additions
@@ -97,6 +100,7 @@ i xdg-utils
 i mkfontscale                   # https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/x-fonts.html
 i adwaita-icon-theme hicolor-icon-theme freedesktop-sound-theme
 i yad
+i smartmontools
 
 # Finally, install all packages
 pkg install $PACKAGES
@@ -150,5 +154,13 @@ ifvm vmware chmod 555 /usr/local/etc/rc.d/xde-vmware-vmblock-fuse
 
 rm -rf "$XDE_HOME/generated-system/"
 
-echo -e "\n\nDone, you'd better reboot now!\n"
+cat <<EOF
 
+
+Run this command for important messages of some packages:
+
+    pkg info -D 'drm-*-kmod' smartmontools
+
+Then you'd better reboot to make some changes in /boot/loader.conf and /etc/rc.conf take effect.
+
+EOF
