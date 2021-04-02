@@ -105,7 +105,7 @@ pkg install $PACKAGES
 ## system config
 
 # required by /usr/local/bin/vmware-vmblock-fuse and other fuse filesystems
-loader_sysrc fuse_load=YES
+loader_sysrc fusefs_load=YES
 
 ifvm vbox sysrc vboxguest_enable=YES vboxservice_enable=YES vboxservice_flags="--disable-timesync"
 ifvm parallels sysrc kld_list+=if_pvmnet
