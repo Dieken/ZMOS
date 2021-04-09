@@ -79,6 +79,9 @@ i picom
 # X settings daemon
 i xsettingsd
 
+# notification daemon, use command notify-send in libnotify to send notification.
+i dunst
+
 # X terminal emulator: rxvt-unicode, mlterm
 i rxvt-unicode urxvt-font-size urxvt-perls
 
