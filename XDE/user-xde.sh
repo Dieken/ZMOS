@@ -48,6 +48,8 @@ rsync -acv -b --backup-dir "$PWD/backup-user-$TIMESTAMP" \
     --exclude "*.append" --exclude "*.sample" --exclude "*.tmpl" --exclude ".*.sw*" --exclude "*~" --exclude ".DS_Store" --exclude ".git*" \
     "$XDE_HOME/generated-user/" $HOME/
 
+fcitx-remote -r
+
 rm -rf "$XDE_HOME/generated-user/"
 
 fc-cache -frv

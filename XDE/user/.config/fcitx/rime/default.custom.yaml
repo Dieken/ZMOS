@@ -1,0 +1,13 @@
+customization:
+  distribution_code_name: Weasel
+  distribution_version: 0.14.3
+  generator: "Rime::SwitcherSettings"
+  modified_time: "Tue Jul 21 14:41:45 2020"
+  rime_version: 1.5.3
+patch:
+  schema_list:
+    - {schema: luna_pinyin_fluency}
+    - {schema: luna_pinyin}
+    - {schema: wubi_pinyin}
+  "switcher/hotkeys":
+    - "Control+slash"
