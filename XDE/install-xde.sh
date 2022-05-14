@@ -86,7 +86,7 @@ i dunst
 i rxvt-unicode urxvt-font-size urxvt-perls
 
 # X input method
-i fcitx-qt5 zh-fcitx zh-fcitx-configtool zh-fcitx-libpinyin zh-fcitx-sunpinyin
+i fcitx-qt5 zh-fcitx zh-fcitx-configtool zh-fcitx-rime zh-rime-essay zh-rime-data-full
 
 # sound server: Pulse Audio, Jack, Pipewire, FreeBSD kernel mixer + sndiod + virtual_oss
 #i pulseaudio pavucontrol
@@ -104,6 +104,23 @@ i mkfontscale                   # https://www.freebsd.org/doc/en_US.ISO8859-1/bo
 i adwaita-icon-theme hicolor-icon-theme freedesktop-sound-theme
 i yad
 i smartmontools
+
+# web browser
+i chromium
+#i firefox
+
+# music player: musicpd ncmpcpp
+# video player: mpv vlc
+
+# ebook viewer
+#i xpdf
+#i zathura zathura-{cb,djvu,pdf-mupdf,ps}
+
+# image viewer
+i feh
+
+# screenshot
+i scrot
 
 # Finally, install all packages
 pkg install $PACKAGES
