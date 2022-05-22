@@ -94,7 +94,7 @@ i fcitx5 fcitx5-configtool fcitx5-gtk fcitx5-lua fcitx5-qt zh-fcitx5-rime zh-rim
 #i pipewire
 
 # extra fonts
-i dejavu hack-font noto zh-CJKUnifonts font-awesome
+i dejavu hack-font noto font-awesome
 #i powerline-fonts nerd-fonts
 
 # extra utilities
