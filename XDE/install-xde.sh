@@ -86,7 +86,7 @@ i dunst
 i rxvt-unicode urxvt-font-size urxvt-perls
 
 # X input method
-i fcitx-qt5 zh-fcitx zh-fcitx-configtool zh-fcitx-rime zh-rime-essay zh-rime-data-full
+i fcitx5 fcitx5-configtool fcitx5-gtk fcitx5-lua fcitx5-qt zh-fcitx5-rime zh-rime-essay zh-rime-data-full
 
 # sound server: Pulse Audio, Jack, Pipewire, FreeBSD kernel mixer + sndiod + virtual_oss
 #i pulseaudio pavucontrol

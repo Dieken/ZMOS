@@ -28,9 +28,11 @@ failsafe() {
 export_env_vars() {
     export LANG=en_US.UTF-8
     export LC_CTYPE=zh_CN.UTF-8
-    export XMODIFIERS=@im=fcitx
-    export GTK_IM_MODULE=fcitx
+    export XMODIFIERS='@im=fcitx'
+    export GTK_IM_MODULE='fcitx'
     export QT_IM_MODULE=fcitx
+    export GLFW_IM_MODULE=ibus  # https://www.fcitx-im.org/wiki/Setup_Fcitx_5
+    export SDL_IM_MODULE=fcitx
 
     export MANWIDTH=tty
     export CLICOLOR=1
@@ -61,13 +63,18 @@ init_xserver() {
     #[ -e "$XDG_DATA_HOME/fonts/fonts.dir" ] && xset +fp "$XDG_DATA_HOME/fonts"
 }
 
+start_dbus() {
+    [ "${DBUS_SESSION_BUS_ADDRESS:-}" ] || eval `dbus-launch --sh-syntax --exit-with-x11`
+    echo "D-Bus per-session daemon address is: $DBUS_SESSION_BUS_ADDRESS"
+}
+
 start_fcitx() {
-    fcitx
+    fcitx5 -d -r
 
     local i=0
     while [ $((i+=1)) -le 100 ]; do
         sleep 0.1
-        fcitx-remote >/dev/null 2>&1 && break
+        fcitx5-remote >/dev/null 2>&1 && break
     done
 }
 
@@ -103,6 +110,9 @@ start_vm_tools() {
 
 ## redirect log to ~/.xsession-errors
 redirect_log
+
+## start session dbus, required by Fcitx
+start_dbus
 
 ## export some environment variables
 export_env_vars

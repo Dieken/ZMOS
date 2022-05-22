@@ -68,3 +68,4 @@ FreeBSD based desktop operating system can be with some good small software.
 
    reboot
    ```
+7. After login X session, run `fcitx5-configtool` and select `Rime` to enable RIME for Fcitx.
