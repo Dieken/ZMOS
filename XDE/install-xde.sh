@@ -66,7 +66,7 @@ i slim slim-themes
 #i xsm
 
 # X window manager: i3, awesome, openbox, icewm, windowmaker, fvwm
-i i3-gaps i3blocks rofi rofi-calc rofi-pass     # rofi is better than dmenu
+i i3 i3blocks rofi rofi-calc rofi-pass      # rofi is better than dmenu
 #i awesome awesome-vicious conky-awesome
 #i openbox tint2 # fbpanel is another good panel
 #i icewm
@@ -86,7 +86,7 @@ i dunst
 i rxvt-unicode urxvt-font-size urxvt-perls
 
 # X input method
-i fcitx5 fcitx5-configtool fcitx5-gtk fcitx5-lua fcitx5-qt5 fcitx5-qt6 zh-fcitx5-rime zh-rime-essay zh-rime-data-full
+i fcitx5 fcitx5-configtool fcitx5-gtk2 fcitx5-gtk3 fcitx5-gtk4 fcitx5-lua fcitx5-qt5 fcitx5-qt6 zh-fcitx5-rime zh-rime-essay zh-rime-data-full
 
 # sound server: Pulse Audio, Jack, Pipewire, FreeBSD kernel mixer + sndiod + virtual_oss
 #i pulseaudio pavucontrol
