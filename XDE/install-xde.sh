@@ -65,7 +65,10 @@ i slim slim-themes
 # X session manager
 #i xsm
 
-# X window manager: i3, awesome, openbox, icewm, windowmaker, fvwm
+# X window manager:
+#   tiling:     i3, awesome, spectrwm, stumpwm, qtile, notion
+#   stacking:   openbox/fluxbox/blackbox, icewm, sawfish/metacity/mutter,
+#               windowmaker, fvwm, cwm
 i i3 i3blocks rofi rofi-calc rofi-pass      # rofi is better than dmenu
 #i awesome awesome-vicious conky-awesome
 #i openbox tint2 # fbpanel is another good panel
